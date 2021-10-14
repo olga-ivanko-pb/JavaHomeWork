@@ -1,63 +1,39 @@
 package com.pb.ivanko.hm2;
 import java.util.Scanner;
 
-
 public class Calculator {
-        static Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args) {
+        int result=0;
+        Scanner in = new Scanner(System.in);
 
-        public static void main(String[] args) {
-            int num1 = getInt();
-            int num2 = getInt();
-            char operation = getOperation();
-            int result = calc(num1,num2,operation);
-            System.out.println("Результат операции: "+result);
-        }
 
-        public static int getInt(){
-            System.out.println("Введите число:");
-            int num;
-            if(scanner.hasNextInt()){
-                num = scanner.nextInt();
-            } else {
-                System.out.println(" Попробуйте еще раз.");
-                scanner.next();
-                num = getInt();
-            }
-            return num;
-        }
+        System.out.println("Введите число 1");
+        int leftoperand1 =in.nextInt();
 
-        public static char getOperation(){
-            System.out.println("Введите операцию:");
-            char operation;
-            if(scanner.hasNext()){
-                operation = scanner.next().charAt(0);
-            } else {
-                System.out.println("Попробуйте еще раз.");
-                scanner.next();
-                operation = getOperation();
-            }
-            return operation;
-        }
+        System.out.println("Введите число 2");
+        int rightoperand2 =in.nextInt();
 
-        public static int calc(int num1, int num2, char operation){
-            int result;
-            switch (operation){
-                case '+':
-                    result = num1+num2;
-                    break;
-                case '-':
-                    result = num1-num2;
-                    break;
-                case '*':
-                    result = num1*num2;
-                    break;
-                case '/':
-                    result = num1/num2;
-                    break;
-                default:
+        System.out.println("Операция");
+        String symbol=in.next();
+
+        switch (symbol) {
+            case "+":
+                result = leftoperand1 + rightoperand2;
+                break;
+            case "-":
+                result = leftoperand1 - rightoperand2;
+                break;
+            case "*":
+                result = leftoperand1 * rightoperand2;
+                break;
+            case "/":
+                if (rightoperand2 == 0) {
                     System.out.println("Ошибка");
-                    result = calc(num1, num2, getOperation());
-            }
-            return result;
+                } else
+                    result = leftoperand1 / rightoperand2;
+
         }
+        System.out.println("Результат операции: " +result);
     }
+
+}
