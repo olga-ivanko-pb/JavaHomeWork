@@ -3,15 +3,15 @@ import java.util.Scanner;
 
 public class Calculator {
     public static void main(String[] args) {
-        int result=0;
+       double result=0;
         Scanner in = new Scanner(System.in);
 
 
         System.out.println("Введите число 1");
-        int leftoperand1 =in.nextInt();
+        double leftoperand1 =in.nextInt();
 
         System.out.println("Введите число 2");
-        int rightoperand2 =in.nextInt();
+        double rightoperand2 =in.nextInt();
 
         System.out.println("Операция");
         String symbol=in.next();
